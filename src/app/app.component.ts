@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class AppComponent implements OnInit {
   title = 'eShopping';
+  products: any[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
 
     this.http.get('http://localhost:9010/Catalog/GetProductsByBrandName/Adidas').subscribe(
       {
-        next: response => console.log(response),
+        next: (response: any) => {
+          this.products = response;
+          console.log(response);
+        },
         error: error => console.log(error),
         complete: () => console.log('Catalog API call completed')
       }
