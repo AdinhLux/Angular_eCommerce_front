@@ -111,7 +111,8 @@ When creating different features for our application, we need to **organize** ou
 ├─ ...
 ├─ src
 │  ├─ app
-│  │  ├─ core                        # Simple folder, generated with a module.ts, where we will create or move Component folders
+│  │  ├─ core                         # Simple folder, generated with a module.ts, where we will create or move Component folders.
+│  │  │  │                            # We have to : IMPORT extarnal Modules into app-module.ts / EXPORT components from these external modules
 │  │  │  ├─ navbar
 │  │  │  │  └─ ...
 │  │  │  │
