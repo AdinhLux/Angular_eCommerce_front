@@ -9,7 +9,8 @@ import {StoreComponent} from './store.component';
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [StoreComponent]
 })
 export class StoreModule {
 }
