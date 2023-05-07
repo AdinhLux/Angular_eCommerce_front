@@ -100,4 +100,26 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ### FeatModuleure
 
-We divide our Application into dedicated modules.
+When creating different features for our application, we need to **organize** our code files **into different folders**.
+
+> This is what **modules** are for.
+>
+> You can see we have moved our **Navbar** component into the **core** (module) folder.
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ core                        # Simple folder, generated with a module.ts, where we will create or move Component folders
+│  │  │  ├─ navbar
+│  │  │  │  └─ ...
+│  │  │  │
+│  │  │  └─ core.module.ts
+│  │  │ 
+│  │  └─ ...           
+│  │
+│  └─ ...
+│
+└─ ...
+```
