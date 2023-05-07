@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {StoreService} from "./store.service";
 import {IProduct} from "../shared/models/product";
+import {IBrand} from "../shared/models/brand";
+import {IType} from "../shared/models/type";
 
 @Component({
   selector: 'app-store',
@@ -9,11 +11,19 @@ import {IProduct} from "../shared/models/product";
 })
 export class StoreComponent implements OnInit {
   products: IProduct[] = [];
+  brands: IBrand[] = [];
+  types: IType[] = [];
 
   constructor(private storeService: StoreService) {
   }
 
   ngOnInit(): void {
+    this.getProducts();
+    this.getBrands();
+    this.getTypes();
+  }
+
+  getProducts() {
     this.storeService.getProducts().subscribe(
       {
         next: (response) => {
@@ -24,5 +34,23 @@ export class StoreComponent implements OnInit {
         complete: () => console.log('Catalog API call completed')
       }
     )
+  }
+
+  getBrands() {
+    this.storeService.getBrands().subscribe({
+      next: response => {
+        this.brands = [{id: '', name: 'All'}, ...response]
+      },
+      error: error => console.log(error)
+    });
+  }
+
+  getTypes() {
+    this.storeService.getTypes().subscribe({
+      next: response => {
+        this.types = [{id: '', name: 'All'}, ...response]
+      },
+      error: error => console.log(error)
+    });
   }
 }
