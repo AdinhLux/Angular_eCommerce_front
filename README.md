@@ -54,6 +54,10 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 └─ ...
 ```
 
+&nbsp;
+
+### Component
+
 * When starting the application for the 1st time, you have a single page without routing.
 
 > We can say that **Component** is a graphical portion of our Web page, <ins>where there is an interaction with the User
@@ -75,7 +79,7 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 * Then we delete the main content, and we added a **Navbar** component
 
-> The Navbar is placed **above the main component**
+> The Navbar is placed **on the main component**, like LEGO.
 
 ```
 ├─ ...
@@ -91,3 +95,57 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ```
 
 ![Default Web Page](./assets/images/Navbar_Component_1.jpg)
+
+&nbsp;
+
+### Module
+
+When creating different features for our application, we need to **organize** our code files **into different folders**.
+
+> This is what **modules** are for.
+>
+> You can see we have moved our **Navbar** component into the **core** (module) folder.
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ core                         # Simple folder, generated with a module.ts, where we will create or move Component folders.
+│  │  │  │                            # We have to : IMPORT extarnal Modules into app-module.ts / EXPORT components from these external modules
+│  │  │  ├─ navbar
+│  │  │  │  └─ ...
+│  │  │  │
+│  │  │  └─ core.module.ts
+│  │  │ 
+│  │  └─ ...           
+│  │
+│  └─ ...
+│
+└─ ...
+```
+
+&nbsp;
+
+### Service
+
+When application gets bootstrapped, the **Service** will be injected into the **Module**. In this file, we will
+implement the HTTP request methods.
+
+> In the past, we have to declare them into `providers` section of a Module. Now as it is injectable, it will be
+> automatically registered into the module and this module will be lazily loaded.
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ core
+│  │  ├─ store
+│  │  │  ├─ ...
+│  │  │  ├─ store.module.ts
+│  │  │  └─ store.service.ts
+│  │  └─ ...           
+│  └─ ...
+└─ ...
+```
