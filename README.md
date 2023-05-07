@@ -124,3 +124,28 @@ When creating different features for our application, we need to **organize** ou
 │
 └─ ...
 ```
+
+&nbsp;
+
+### Service
+
+When application gets bootstrapped, the **Service** will be injected into the **Module**. In this file, we will
+implement the HTTP request methods.
+
+> In the past, we have to declare them into `providers` section of a Module. Now as it is injectable, it will be
+> automatically registered into the module and this module will be lazily loaded.
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ core
+│  │  ├─ store
+│  │  │  ├─ ...
+│  │  │  ├─ store.module.ts
+│  │  │  └─ store.service.ts
+│  │  └─ ...           
+│  └─ ...
+└─ ...
+```
