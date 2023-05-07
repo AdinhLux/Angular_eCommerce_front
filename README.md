@@ -54,6 +54,10 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 └─ ...
 ```
 
+&nbsp;
+
+### Component
+
 * When starting the application for the 1st time, you have a single page without routing.
 
 > We can say that **Component** is a graphical portion of our Web page, <ins>where there is an interaction with the User
@@ -75,7 +79,7 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 * Then we delete the main content, and we added a **Navbar** component
 
-> The Navbar is placed **above the main component**
+> The Navbar is placed **on the main component**, like LEGO.
 
 ```
 ├─ ...
@@ -91,3 +95,9 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ```
 
 ![Default Web Page](./assets/images/Navbar_Component_1.jpg)
+
+&nbsp;
+
+### FeatModuleure
+
+We divide our Application into dedicated modules.
