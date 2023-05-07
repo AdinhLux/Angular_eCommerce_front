@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {IPagination} from "../shared/models/pagination";
 import {IProduct} from "../shared/models/product";
 import {IBrand} from "../shared/models/brand";
 import {IType} from "../shared/models/type";
+import {StoreParams} from "../shared/models/storeParams";
 
 @Injectable({
   providedIn: 'root' // 'root' is app-module.ts
@@ -15,8 +16,27 @@ export class StoreService {
 
   baseUrl = 'http://localhost:9010/';
 
-  getProducts() {
-    return this.http.get<IPagination<IProduct[]>>(this.baseUrl + 'Catalog/GetAllProducts')
+  getProducts(storeParams: StoreParams) {
+
+    // FILTERING parameters for getting specific products
+    let params = new HttpParams();
+
+    if (storeParams.brandId) {
+      params = params.append('brandId', storeParams.brandId);
+    }
+    if (storeParams.typeId) {
+      params = params.append('typeId', storeParams.typeId);
+    }
+
+    if (storeParams.search) {
+      params = params.append('search', storeParams.search);
+    }
+
+    params = params.append('sort', storeParams.sort);
+    params = params.append('pageIndex', storeParams.pageNumber);
+    params = params.append('pageSize', storeParams.pageSize);
+
+    return this.http.get<IPagination<IProduct[]>>(this.baseUrl + 'Catalog/GetAllProducts', {params})
   }
 
   getBrands() {
