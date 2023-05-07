@@ -98,7 +98,7 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 &nbsp;
 
-### FeatModuleure
+### Module
 
 When creating different features for our application, we need to **organize** our code files **into different folders**.
 
