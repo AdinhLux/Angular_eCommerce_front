@@ -15,6 +15,12 @@ export class StoreComponent implements OnInit {
   brands: IBrand[] = [];
   types: IType[] = [];
   storeParams = new StoreParams();
+  // SORTING
+  sortOptions = [
+    {name: 'Alphabetical', value: 'name'},
+    {name: 'Price: Ascending', value: 'priceAsc'},
+    {name: 'Price: Descending', value: 'priceDesc'}
+  ];
 
   constructor(private storeService: StoreService) {
   }
@@ -63,6 +69,11 @@ export class StoreComponent implements OnInit {
 
   onTypeSelected(typeId: string) {
     this.storeParams.typeId = typeId;
+    this.getProducts();
+  }
+
+  onSortSelected(sort: string) {
+    this.storeParams.sort = sort;
     this.getProducts();
   }
 }
