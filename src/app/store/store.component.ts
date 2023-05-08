@@ -84,4 +84,9 @@ export class StoreComponent implements OnInit {
     this.storeParams.sort = sort;
     this.getProducts();
   }
+
+  onPageChanged(event: any) {
+    this.storeParams.pageNumber = event.page;
+    this.getProducts();
+  }
 }

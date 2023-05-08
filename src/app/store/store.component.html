@@ -56,6 +56,8 @@
         [boundaryLinks]="true"
         [totalItems]="this.totalCount"
         [itemsPerPage]="this.storeParams.pageSize"
+        (pageChanged)="onPageChanged($event)"
+        [maxSize]="10"
         previousText="&lsaquo;"
         nextText="&rsaquo;"
         firstText="&laquo;"
