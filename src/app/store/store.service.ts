@@ -34,6 +34,8 @@ export class StoreService {
 
     // SORTING
     params = params.append('sort', storeParams.sort);
+
+    // PAGINATION
     params = params.append('pageIndex', storeParams.pageNumber);
     params = params.append('pageSize', storeParams.pageSize);
 

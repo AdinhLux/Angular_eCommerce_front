@@ -22,6 +22,9 @@ export class StoreComponent implements OnInit {
     {name: 'Price: Descending', value: 'priceDesc'}
   ];
 
+  // PAGINATION
+  totalCount = 0;
+
   constructor(private storeService: StoreService) {
   }
 
@@ -37,6 +40,11 @@ export class StoreComponent implements OnInit {
         next: (response) => {
           this.products = response.data;
           console.log(response);
+
+          // PAGINATION
+          this.storeParams.pageNumber = response.pageIndex;
+          this.storeParams.pageSize = response.pageSize;
+          this.totalCount = response.count;
         },
         error: error => console.log(error),
         complete: () => console.log('Catalog API call completed')
@@ -74,6 +82,11 @@ export class StoreComponent implements OnInit {
 
   onSortSelected(sort: string) {
     this.storeParams.sort = sort;
+    this.getProducts();
+  }
+
+  onPageChanged(event: any) {
+    this.storeParams.pageNumber = event.page;
     this.getProducts();
   }
 }
