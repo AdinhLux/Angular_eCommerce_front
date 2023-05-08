@@ -32,6 +32,7 @@ export class StoreService {
       params = params.append('search', storeParams.search);
     }
 
+    // SORTING
     params = params.append('sort', storeParams.sort);
     params = params.append('pageIndex', storeParams.pageNumber);
     params = params.append('pageSize', storeParams.pageSize);
