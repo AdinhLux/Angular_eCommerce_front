@@ -54,7 +54,8 @@
     <div class="d-flex justify-content-center">
       <pagination
         [boundaryLinks]="true"
-        [totalItems]=7
+        [totalItems]="this.totalCount"
+        [itemsPerPage]="this.storeParams.pageSize"
         previousText="&lsaquo;"
         nextText="&rsaquo;"
         firstText="&laquo;"
