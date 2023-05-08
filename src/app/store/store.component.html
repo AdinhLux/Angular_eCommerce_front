@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    
+
     <section class="col-3">
       <ng-container *ngIf="products">
         <h5 class="text-warning mb-3">Sort</h5>
@@ -51,6 +51,16 @@
         </div>
       </div>
     </section>
+    <div class="d-flex justify-content-center">
+      <pagination
+        [boundaryLinks]="true"
+        [totalItems]=7
+        previousText="&lsaquo;"
+        nextText="&rsaquo;"
+        firstText="&laquo;"
+        lastText="&raquo;">
+      </pagination>
+    </div>
   </div>
 </div>
 
