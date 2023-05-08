@@ -28,6 +28,7 @@ export class StoreService {
       params = params.append('typeId', storeParams.typeId);
     }
 
+    //SEARCHING
     if (storeParams.search) {
       params = params.append('search', storeParams.search);
     }
