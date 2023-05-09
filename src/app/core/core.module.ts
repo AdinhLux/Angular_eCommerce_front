@@ -5,6 +5,7 @@ import {RouterModule} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UnAuthenticatedComponent } from './un-authenticated/un-authenticated.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     NavbarComponent,
     NotFoundComponent,
     UnAuthenticatedComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
