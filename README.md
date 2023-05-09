@@ -209,3 +209,15 @@ For navigating between pages, we're using defining **Routes**.
 ### Summary of Angular web app
 
 ![Angular web app](./assets/eCommerce-Angular.jpg)
+
+&nbsp;
+
+---
+
+### Error Handling
+
+&nbsp;
+
+---
+
+### Pipes and Directives
