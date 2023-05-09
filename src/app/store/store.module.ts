@@ -5,6 +5,7 @@ import {ProductItemsComponent} from './product-items/product-items.component';
 import {SharedModule} from "../shared/shared.module";
 import {ProductDetailsComponent} from './product-details/product-details.component';
 import {RouterModule} from "@angular/router";
+import { StoreRoutingModule } from './store-routing.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {RouterModule} from "@angular/router";
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    StoreRoutingModule
   ],
   exports: [StoreComponent]
 })
