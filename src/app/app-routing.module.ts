@@ -6,7 +6,7 @@ import {UnAuthenticatedComponent} from "./core/un-authenticated/un-authenticated
 import {ServerErrorComponent} from "./core/server-error/server-error.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, data: {breadcrumb: 'Home'}},
   {path: 'not-found', component: NotFoundComponent},
   {path: 'un-authenticated', component: UnAuthenticatedComponent},
   {path: 'server-error', component: ServerErrorComponent},
