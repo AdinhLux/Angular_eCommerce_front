@@ -50,4 +50,8 @@ export class StoreService {
   getTypes() {
     return this.http.get<IType[]>(this.baseUrl + 'Catalog/GetAllTypes');
   }
+
+  getProductById(id: string) {
+    return this.http.get<IProduct>(this.baseUrl + 'Catalog/GetProductById/' + id);
+  }
 }
