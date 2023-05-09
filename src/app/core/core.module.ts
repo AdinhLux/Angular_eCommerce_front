@@ -2,9 +2,12 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NavbarComponent} from "./navbar/navbar.component";
 import {RouterModule} from "@angular/router";
-import { NotFoundComponent } from './not-found/not-found.component';
-import { UnAuthenticatedComponent } from './un-authenticated/un-authenticated.component';
-import { ServerErrorComponent } from './server-error/server-error.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {UnAuthenticatedComponent} from './un-authenticated/un-authenticated.component';
+import {ServerErrorComponent} from './server-error/server-error.component';
+import {HeaderComponent} from './header/header.component';
+import {BreadcrumbModule} from "xng-breadcrumb";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
@@ -12,13 +15,16 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     NavbarComponent,
     NotFoundComponent,
     UnAuthenticatedComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BreadcrumbModule,
+    NgxSpinnerModule
   ],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent, HeaderComponent, NgxSpinnerModule]
 })
 export class CoreModule {
 }
