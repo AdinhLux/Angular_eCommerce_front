@@ -11,7 +11,11 @@ const routes: Routes = [
   {path: 'un-authenticated', component: UnAuthenticatedComponent},
   {path: 'server-error', component: ServerErrorComponent},
   // LAZY LOADING : for loading module only when clicking on STORE (best practice for App performance)
-  {path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule)},
+  {
+    path: 'store',
+    loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule),
+    data: {breadcrumb: 'Store'}
+  },
   {path: '**', redirectTo: '', pathMatch: "full"}
 ];
 
