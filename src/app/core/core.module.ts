@@ -7,6 +7,7 @@ import {UnAuthenticatedComponent} from './un-authenticated/un-authenticated.comp
 import {ServerErrorComponent} from './server-error/server-error.component';
 import {HeaderComponent} from './header/header.component';
 import {BreadcrumbModule} from "xng-breadcrumb";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 
 @NgModule({
@@ -20,9 +21,10 @@ import {BreadcrumbModule} from "xng-breadcrumb";
   imports: [
     CommonModule,
     RouterModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    NgxSpinnerModule
   ],
-  exports: [NavbarComponent, HeaderComponent]
+  exports: [NavbarComponent, HeaderComponent, NgxSpinnerModule]
 })
 export class CoreModule {
 }
