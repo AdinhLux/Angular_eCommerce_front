@@ -6,6 +6,7 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {UnAuthenticatedComponent} from './un-authenticated/un-authenticated.component';
 import {ServerErrorComponent} from './server-error/server-error.component';
 import {HeaderComponent} from './header/header.component';
+import {BreadcrumbModule} from "xng-breadcrumb";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {HeaderComponent} from './header/header.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BreadcrumbModule
   ],
   exports: [NavbarComponent, HeaderComponent]
 })
