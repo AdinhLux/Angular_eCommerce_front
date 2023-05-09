@@ -201,3 +201,11 @@ For navigating between pages, we're using defining **Routes**.
 │  └─ ...
 └─ ...
 ```
+
+&nbsp;
+
+---
+
+### Summary of Angular web app
+
+![Angular web app](./assets/eCommerce-Angular.jpg)
