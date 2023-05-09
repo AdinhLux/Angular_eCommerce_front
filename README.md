@@ -37,7 +37,8 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ├─ ...
 ├─ src
 │  ├─ app
-│  │  ├─ app-routing.module.ts        (6)
+│  │  ├─ app-routing.module.ts        (6) File used for navigating between pages. While navigating, we will load its module (and thus its component, using the 'lazy loading'. 
+│  │  │                                   We use the tag <router-outlet> for switching between content in our HTML files
 │  │  ├─ app.component.html
 │  │  ├─ app.component.scss
 │  │  ├─ app.component.spec.ts
@@ -55,6 +56,8 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ```
 
 &nbsp;
+
+---
 
 ### Component
 
@@ -98,6 +101,8 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 &nbsp;
 
+---
+
 ### Module
 
 When creating different features for our application, we need to **organize** our code files **into different folders**.
@@ -127,6 +132,8 @@ When creating different features for our application, we need to **organize** ou
 
 &nbsp;
 
+---
+
 ### Service
 
 When application gets bootstrapped, the **Service** will be injected into the **Module**. In this file, we will
@@ -146,6 +153,51 @@ implement the HTTP request methods.
 │  │  │  ├─ store.module.ts
 │  │  │  └─ store.service.ts
 │  │  └─ ...           
+│  └─ ...
+└─ ...
+```
+
+&nbsp;
+
+---
+
+### Route (and Lazy Loading)
+
+For navigating between pages, we're using defining **Routes**.
+
+> For best **performances**, when bootstrapping the Web application, we should **avoid loading all of our modules** at
+> ONCE.
+>
+> This is where **Lazy Loading** comes into action.
+
+`Store` module is an example of big module :
+
+- When loading its `StoreComponent`, it will send its HTTP requests to the backend to fetch all product data.
+- We should only load the module when clicking on the Store URL (`http://localhost:4200/store`).
+- In `store-routing.module.ts`, we declare `RouterModule.forChild(routes)`
+- In the routing parent `app-routing.module.ts`, we declare alongside `path`, the property `loadChildren`
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ ...
+│  │  ├─ store
+│  │  │  ├─ product-details
+│  │  │  │  └─ ...
+│  │  │  │
+│  │  │  ├─ ...
+│  │  │  ├─ store.module.ts                   (2) We want to make this module independant => we DON'T EXPORT any components and we import our routing module
+│  │  │  └─ store-routing.module.ts           (1) We create the routing file where we define the path to all of its components (store product-details),
+│  │  │                                           while importing the 'RouterModule' from Angular. 
+│  │  │                                           The RouterModule should be followed by this : RouterModule.forChild(routes)
+│  │  │ 
+│  │  ├─ app-routing.module.ts                (4) When defining our routes, for the module that have to be loaded on demand, we use the 'loadChildren' property. Like this :
+│  │  │                                           {path: 'store', loadChildren: () => import('./store/store.module').then(mod => mod.StoreModule)}
+│  │  ├─ app.component.html
+│  │  ├─ ...
+│  │  └─ app.module.ts                        (3) We DON'T IMPORT the StoreModule. Wew will declare it in our 'app-routing.module.ts'          
 │  └─ ...
 └─ ...
 ```
