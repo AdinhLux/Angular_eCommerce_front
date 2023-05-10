@@ -216,6 +216,37 @@ For navigating between pages, we're using defining **Routes**.
 
 ### Error Handling
 
+When sending HTTP requests to the backend server, it will send back a response.
+
+> If we want to **listen** to the server's responses, we need to create **Interceptors**
+
+```
+├─ .angular
+├─ ...
+├─ src
+│  ├─ app
+│  │  ├─ ...
+│  │  ├─ core
+│  │  │  ├─ ...
+│  │  │  ├─ interceptors
+│  │  │  │  ├─ error.interceptor.ts           (1) We create our interceptor, using 'ng' commands. In the file, you implement the code for th 'intercept' method
+│  │  │  │  └─ loading.interceptor.ts
+│  │  │  │
+│  │  │  ├─ services
+│  │  │  │  └─ loading.service.ts
+│  │  │  └─ ...
+│  │  │ 
+│  │  ├─ app.module.ts                        (3) In providers sections, you declare your interceptors
+│  │  │                                       providers: [
+│  │  │                                         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+│  │  │                                         {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+│  │  │                                       ],
+│  │  │   
+│  │  └─ app-routing.module.ts                (2) If you do page redirection, define the path to the Components here
+│  └─ ...
+└─ ...
+```
+
 &nbsp;
 
 ---
