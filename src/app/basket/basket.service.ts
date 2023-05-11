@@ -8,7 +8,7 @@ import {IProduct} from "../shared/models/product";
   providedIn: 'root'
 })
 export class BasketService {
-  baseUrl = 'https://localhost:9010';
+  baseUrl = 'http://localhost:9010';
 
   constructor(private http: HttpClient) {
   }
